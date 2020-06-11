@@ -1,0 +1,4 @@
+name = "ConstructiveSolidGeometry"
+uuid = "0084c374-9303-4c98-a307-1cb2b6841271"
+authors = ["Lukas Hauertmann <lhauert@mpp.mpg.de>"]
+version = "0.1.0"
