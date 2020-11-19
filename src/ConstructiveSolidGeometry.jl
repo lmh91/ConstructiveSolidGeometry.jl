@@ -6,6 +6,7 @@ module ConstructiveSolidGeometry
     # Other Packages
     using StaticArrays
     using Rotations
+    using ForwardDiff
 
     import Base: in, *
     

@@ -10,7 +10,8 @@ using Plots
 using ConstructiveSolidGeometry: 
     CartesianPoint, CartesianVector,
     StrechedPrimitive, RotatedPrimitive, TranslatedPrimitive,
-    Tube
+    Tube, 
+    distance_to_surface, direction_to_nearest_surface
 
 
 T = Float64
@@ -33,6 +34,23 @@ end
         @test !(CartesianPoint{T}(1.1*tube.r, 0, tube.half_z) in tube) 
     end
 end
+
+begin
+    tube = Tube(1.0, 1.0) # r = 1, half_z = 1 -> h = 2 
+    cp1 = CartesianPoint{T}(0.2, 0, 0.95) 
+    
+    distance_to_surface(cp1, tube)
+
+    direction_to_nearest_surface(cp1, tube)
+    
+    streched_tube = StrechedPrimitive(tube, SVector(1.0, 3.0, 10.0))
+    direction_to_nearest_surface(cp1, streched_tube)
+    
+    rot_tube = RotatedPrimitive(tube, RotMatrix(RotX(deg2rad(90))))
+    direction_to_nearest_surface(cp1, rot_tube)
+end
+
+
 
 
 @testset "Streching - Rotation - Translation" begin 
