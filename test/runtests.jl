@@ -63,6 +63,7 @@ end
 rot = RotX(deg2rad(90))
 t = CartesianVector{T}(1, 0, 0 )
 tube = Tube(0.2, 1.0) # r = 1, half_z = 1 -> h = 2 
+streching = SVector(1.0, 3.0, 1.0)
 streched_tube = StrechedPrimitive(tube, streching)
 rot_tube = RotatedPrimitive(tube, RotMatrix(rot))
 translated_tube = TranslatedPrimitive(tube, t)
